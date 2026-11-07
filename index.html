@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teeolud — Privacy Policy</title>
+<style>
+:root{--bg:#F6F3EC;--text:#1A1D21;--muted:#5A5F66;--line:#C9C4B8;--accent:#1F5A78}
+@media (prefers-color-scheme: dark){:root{--bg:#22262C;--text:#ECEAE4;--muted:#A7ADB5;--line:#3A4048;--accent:#8CC0DE}}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:48px 20px 80px}
+h1{font-size:28px;margin:0 0 4px}
+.meta{color:var(--muted);font-size:14px;margin-bottom:24px}
+nav.lang{font-size:15px;margin-bottom:32px}
+nav.lang a{margin-right:14px}
+section{scroll-margin-top:16px}
+section+section{margin-top:72px;padding-top:24px;border-top:2px solid var(--line)}
+h2{font-size:18px;margin:32px 0 8px;padding-top:16px;border-top:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+td,th{text-align:left;vertical-align:top;padding:8px 10px 8px 0;border-bottom:1px solid var(--line)}
+td,th{overflow-wrap:anywhere;hyphens:auto}
+th{color:var(--muted);font-weight:500}
+@media (max-width:480px){main{padding:32px 16px 64px} table{font-size:14px} td,th{padding-right:8px}}
+a{color:var(--accent)}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<main>
+<nav class="lang" aria-label="Language">
+<a href="#en" lang="en">English</a>
+<a href="#ru" lang="ru">Русский</a>
+<a href="#et" lang="et">Eesti</a>
+</nav>
+
+<section id="en" lang="en">
+<h1>Teeolud — Privacy Policy</h1>
+<p class="meta">App: Teeolud (Android) · Effective date: 07.11.2026 · Last updated: 07.11.2026</p>
+<p>Teeolud shows the state of the roads in Estonia, Finland, Lithuania and Latvia right now — road surface temperature and condition, road cameras and road events — from the open data of these countries' road administrations. This policy explains what data the app handles, what stays on your device and which servers the app connects to.</p>
+
+<h2>1. Summary</h2>
+<ul>
+<li>Teeolud has no account and no sign-up. It shows no ads and contains no analytics, crash-reporting or tracking tools. The developer does not collect personal data.</li>
+<li>Your settings, pinned corridors, pinned station and favourite stations are stored only on your device.</li>
+<li>If you allow location, the app uses your approximate location while it is open, to find the road weather stations and cameras near you. This happens only on your device: the app asks its server for the data of whole countries, not of a place, and your location is never sent anywhere. Only the identifier of the nearest station is saved on your device, for the widget.</li>
+<li>The app downloads public road data from its own server, map tiles from OpenFreeMap and camera images from the road administrations. These requests carry nothing about you beyond what every internet connection carries: your IP address. The Teeolud server's host keeps technical logs of requests — IP address, time, the address of the request — for up to 7 days (section 3).</li>
+</ul>
+
+<h2>2. Data processed on your device</h2>
+<table>
+<tr><th>Data</th><th>Why</th><th>Where it goes</th></tr>
+<tr><td>Settings: language, theme, pinned corridors, pinned station, favourite stations, the nearest station found last time, whether the first-launch screen was shown</td><td>To show your roads the way you chose; the nearest station is what the widget shows when no station is pinned</td><td>App-private storage on your device. Included in your Android backup and device transfer if you have backup turned on.</td></tr>
+<tr><td>Downloaded road data: stations, cameras, events, corridors</td><td>So the app and its widgets open instantly and show the last data offline, marked with its age</td><td>App-private storage on your device, kept for up to two days. Included in your Android backup if you have backup turned on.</td></tr>
+<tr><td>Camera images</td><td>So an image already seen loads instantly</td><td>The app's cache on your device. Not backed up; Android may clear it at any time.</td></tr>
+<tr><td>Approximate location</td><td>Only while the app is open and only if you allowed it, to find the stations near you</td><td>Used only in memory on your device. Never stored, never sent.</td></tr>
+</table>
+<p>Uninstalling the app, or clearing its data in Android settings, deletes all of the above.</p>
+
+<h2>3. Network connections</h2>
+<table>
+<tr><th>Server</th><th>What for</th></tr>
+<tr><td>Teeolud server <code>ilmateade-worker.achelpanov86.workers.dev</code> (Cloudflare Workers; it also serves the developer's Ilmateade app)</td><td>Road weather stations, cameras, events, forecasts, corridors and the map settings. The app asks for whole lists — all stations, cameras and events of the four countries — never for a place; which of them are near you and which are on the map is worked out on your device. The server holds only public road data and keeps no information about users.</td></tr>
+<tr><td>OpenFreeMap <code>tiles.openfreemap.org</code></td><td>Map tiles, fonts and icons, only while the map is shown. Like any online map it sees which tiles you load, and so roughly which area you view; the map opens on your location if you allowed it.</td></tr>
+<tr><td>Teeolud map tiles <code>teeolud-tiles.achelpanov86.workers.dev</code> (Cloudflare Workers)</td><td>Map tiles instead of OpenFreeMap's, only if the map is switched to this backup source.</td></tr>
+<tr><td>Road cameras: Transpordiamet <code>tarktee.transpordiamet.ee</code>, Fintraffic <code>weathercam.digitraffic.fi</code>, LAKD <code>eismoinfo.lt</code></td><td>A camera image, only when one is shown: on the camera screen, as a thumbnail on the main screen or in the 4×2 widget.</td></tr>
+</table>
+<p>All connections use HTTPS. Requests contain no device identifiers; the app identifies itself only as <code>Teeolud/&lt;version&gt; (Android)</code> with a link to the project. As with any website, these servers see your IP address. Cloudflare, which runs the Teeolud servers, processes it to deliver the response and keeps technical logs of requests — IP address, time, the address of the request — for up to 7 days for operation and security. The requests contain no location. The developer uses the logs only to diagnose faults and does not link them to any person. Links you tap in the app (this page) open in your browser.</p>
+
+<h2>4. Permissions</h2>
+<table>
+<tr><th>Permission</th><th>Use</th></tr>
+<tr><td>Internet, network state (<code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>)</td><td>Downloading the data; background updates of the widgets run only when you are online.</td></tr>
+<tr><td>Approximate location (<code>ACCESS_COARSE_LOCATION</code>)</td><td>Optional, asked on the first-launch screen or on the main screen. Only to find the stations near you while the app is open, on your device. No precise and no background location. Without it you choose a station or a corridor yourself.</td></tr>
+<tr><td>Start at boot, wake lock, foreground service (<code>RECEIVE_BOOT_COMPLETED</code>, <code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code>)</td><td>Declared by Android's WorkManager library, which updates the widgets every 15 minutes and restores that schedule after a restart. The app does not start foreground services.</td></tr>
+</table>
+
+<h2>5. Third-party services</h2>
+<ul>
+<li><strong>Cloudflare</strong> hosts the Teeolud servers (section 3 and <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's Privacy Policy</a>).</li>
+<li><strong>OpenFreeMap</strong> provides the map (section 3, <a href="https://openfreemap.org/">openfreemap.org</a>).</li>
+<li><strong>Your phone's location service</strong> determines the approximate location. On most phones it is provided by Google Play services and works under your device's location settings and <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
+<li><strong>Google Play</strong> distributes the app and gives the developer aggregated, anonymous statistics (such as installs and crashes) under Google's Privacy Policy.</li>
+<li>The road data are public open data of Transpordiamet (Estonia), Fintraffic (Finland), Lietuvos automobilių kelių direkcija (Lithuania) and Latvijas Valsts ceļi (Latvia). No data about you is sent to them, except your IP address when the app loads a camera image directly (section 3).</li>
+</ul>
+
+<h2>6. Data sharing and sale</h2>
+<p>Teeolud does not sell, share or transfer any data about you. It does not have any to share.</p>
+
+<h2>7. Data retention</h2>
+<p>Everything the app stores stays on your device until you delete it or uninstall the app; downloaded road data older than two days are deleted automatically. The developer has no copy and cannot access, restore or delete it for you. Cloudflare's technical logs (section 3) are deleted after at most 7 days.</p>
+
+<h2>8. Children</h2>
+<p>Teeolud is a road conditions app for drivers, not directed at children. It collects no personal data from anyone, children included.</p>
+
+<h2>9. Security</h2>
+<p>App data is kept in Android app-private storage, which other apps cannot read. All network connections are encrypted (HTTPS).</p>
+
+<h2>10. Your rights</h2>
+<p>Because the developer holds no personal data about you, there is nothing to access, correct or delete on the developer's side; your data on the device is under your control in the app and in Android settings. If you write to the developer, your email is used only to reply and is deleted when no longer needed. If you are in the EEA and believe your data protection rights have been infringed, you can contact the Estonian Data Protection Inspectorate (<a href="https://www.aki.ee/en">Andmekaitse Inspektsioon</a>) or the authority of your country.</p>
+
+<h2>11. Changes to this policy</h2>
+<p>If the app starts handling data differently, this page is updated before that version is released, and the date at the top changes.</p>
+
+<h2>12. Contact</h2>
+<p>Alexander Chelpanov, developer of Teeolud: <a href="mailto:alexander.chelpanov@proton.me">alexander.chelpanov@proton.me</a></p>
+</section>
+
+<section id="ru" lang="ru">
+<h1>Teeolud — политика конфиденциальности</h1>
+<p class="meta">Приложение: Teeolud (Android) · Действует с: 07.11.2026 · Обновлено: 07.11.2026</p>
+<p>Teeolud показывает состояние дорог Эстонии, Финляндии, Литвы и Латвии прямо сейчас — температуру и состояние покрытия, дорожные камеры и события на дорогах — по открытым данным дорожных ведомств этих стран. Здесь описано, какие данные обрабатывает приложение, что остаётся на вашем устройстве и к каким серверам оно обращается.</p>
+
+<h2>1. Коротко</h2>
+<ul>
+<li>В Teeolud нет аккаунта и регистрации. Нет рекламы, аналитики, сбора отчётов о сбоях и трекеров. Разработчик не собирает личные данные.</li>
+<li>Настройки, закреплённые коридоры, закреплённая станция и избранные станции хранятся только на вашем устройстве.</li>
+<li>Если вы разрешите геолокацию, приложение, пока оно открыто, использует ваше приблизительное местоположение, чтобы найти дорожные станции и камеры рядом. Это происходит только на устройстве: у сервера приложение запрашивает данные целых стран, а не точки, и местоположение никуда не отправляется. На устройстве сохраняется только идентификатор ближайшей станции — для виджета.</li>
+<li>Приложение загружает открытые дорожные данные со своего сервера, тайлы карты с OpenFreeMap и снимки камер с серверов дорожных ведомств. Эти запросы не несут о вас ничего, кроме того, что несёт любое интернет-соединение: ваш IP-адрес. Хостинг сервера Teeolud хранит технические журналы запросов — IP-адрес, время, адрес запроса — до 7 дней (раздел 3).</li>
+</ul>
+
+<h2>2. Данные на вашем устройстве</h2>
+<table>
+<tr><th>Данные</th><th>Зачем</th><th>Где хранятся</th></tr>
+<tr><td>Настройки: язык, тема, закреплённые коридоры, закреплённая станция, избранные станции, ближайшая станция, найденная в прошлый раз, показан ли экран первого запуска</td><td>Чтобы показывать дороги так, как вы выбрали; ближайшую станцию показывает виджет, если станция не закреплена</td><td>Закрытое хранилище приложения на устройстве. Попадает в резервную копию Android и перенос на новое устройство, если копирование включено.</td></tr>
+<tr><td>Загруженные дорожные данные: станции, камеры, события, коридоры</td><td>Чтобы приложение и виджеты открывались сразу и без сети показывали последние данные с пометкой возраста</td><td>Закрытое хранилище приложения на устройстве, до двух суток. Попадает в резервную копию Android, если копирование включено.</td></tr>
+<tr><td>Снимки камер</td><td>Чтобы уже виденный снимок открывался сразу</td><td>Кэш приложения на устройстве. В резервную копию не попадает; Android может очистить его в любой момент.</td></tr>
+<tr><td>Приблизительное местоположение</td><td>Только пока приложение открыто и только если вы его разрешили — чтобы найти станции рядом</td><td>Используется только в памяти устройства. Не сохраняется и никуда не отправляется.</td></tr>
+</table>
+<p>Удаление приложения или очистка его данных в настройках Android удаляет всё перечисленное.</p>
+
+<h2>3. Сетевые соединения</h2>
+<table>
+<tr><th>Сервер</th><th>Зачем</th></tr>
+<tr><td>Сервер Teeolud <code>ilmateade-worker.achelpanov86.workers.dev</code> (Cloudflare Workers; он же обслуживает приложение разработчика Ilmateade)</td><td>Дорожные метеостанции, камеры, события, прогнозы, коридоры и настройки карты. Приложение запрашивает списки целиком — все станции, камеры и события четырёх стран — и никогда не запрашивает данные по точке; что из этого рядом с вами и что видно на карте, считается на устройстве. На сервере хранятся только открытые дорожные данные, сведений о пользователях там нет.</td></tr>
+<tr><td>OpenFreeMap <code>tiles.openfreemap.org</code></td><td>Тайлы карты, шрифты и значки — только пока открыта карта. Как любая онлайн-карта, сервер видит, какие тайлы вы загружаете, а значит примерно и какую область смотрите; если геолокация разрешена, карта открывается на вашем местоположении.</td></tr>
+<tr><td>Тайлы карты Teeolud <code>teeolud-tiles.achelpanov86.workers.dev</code> (Cloudflare Workers)</td><td>Тайлы карты вместо OpenFreeMap — только если карта переключена на этот запасной источник.</td></tr>
+<tr><td>Дорожные камеры: Transpordiamet <code>tarktee.transpordiamet.ee</code>, Fintraffic <code>weathercam.digitraffic.fi</code>, LAKD <code>eismoinfo.lt</code></td><td>Снимок камеры — только когда он показывается: на экране камеры, миниатюрой на главном экране или в виджете 4×2.</td></tr>
+</table>
+<p>Все соединения идут по HTTPS. В запросах нет идентификаторов устройства; приложение представляется только как <code>Teeolud/&lt;версия&gt; (Android)</code> со ссылкой на проект. Как и любой сайт, эти серверы видят ваш IP-адрес. Cloudflare, на котором работают серверы Teeolud, обрабатывает его, чтобы доставить ответ, и хранит технические журналы запросов — IP-адрес, время, адрес запроса — до 7 дней для работы и безопасности. Местоположения в запросах нет. Разработчик использует журналы только для поиска неисправностей и ни с кем их не связывает. Ссылки, которые вы нажимаете в приложении (эта страница), открываются в браузере.</p>
+
+<h2>4. Разрешения</h2>
+<table>
+<tr><th>Разрешение</th><th>Для чего</th></tr>
+<tr><td>Интернет, состояние сети (<code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>)</td><td>Загрузка данных; фоновое обновление виджетов идёт только при наличии сети.</td></tr>
+<tr><td>Приблизительное местоположение (<code>ACCESS_COARSE_LOCATION</code>)</td><td>Необязательно, запрашивается на экране первого запуска или на главном экране. Только чтобы найти станции рядом, пока приложение открыто, — на устройстве. Ни точного, ни фонового местоположения. Без него вы выбираете станцию или коридор сами.</td></tr>
+<tr><td>Запуск при включении, удержание пробуждения, служба переднего плана (<code>RECEIVE_BOOT_COMPLETED</code>, <code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code>)</td><td>Объявлены библиотекой Android WorkManager, которая обновляет виджеты раз в 15 минут и восстанавливает это расписание после перезагрузки. Приложение не запускает служб переднего плана.</td></tr>
+</table>
+
+<h2>5. Сторонние сервисы</h2>
+<ul>
+<li><strong>Cloudflare</strong> — хостинг серверов Teeolud (раздел 3 и <a href="https://www.cloudflare.com/privacypolicy/">политика конфиденциальности Cloudflare</a>).</li>
+<li><strong>OpenFreeMap</strong> — карта (раздел 3, <a href="https://openfreemap.org/">openfreemap.org</a>).</li>
+<li><strong>Служба местоположения телефона</strong> определяет приблизительное местоположение. На большинстве телефонов это сервисы Google Play; они работают по настройкам местоположения устройства и <a href="https://policies.google.com/privacy">политике конфиденциальности Google</a>.</li>
+<li><strong>Google Play</strong> распространяет приложение и даёт разработчику обобщённую анонимную статистику (установки, сбои) по политике Google.</li>
+<li>Дорожные данные — открытые данные Transpordiamet (Эстония), Fintraffic (Финляндия), Lietuvos automobilių kelių direkcija (Литва) и Latvijas Valsts ceļi (Латвия). Им не передаётся ничего о вас, кроме IP-адреса, когда приложение загружает снимок камеры напрямую (раздел 3).</li>
+</ul>
+
+<h2>6. Передача и продажа данных</h2>
+<p>Teeolud не продаёт, не передаёт и не раскрывает никаких данных о вас. Таких данных у него нет.</p>
+
+<h2>7. Срок хранения</h2>
+<p>Всё, что хранит приложение, остаётся на устройстве, пока вы это не удалите или не удалите приложение; загруженные дорожные данные старше двух суток удаляются сами. У разработчика нет копии, и он не может открыть, восстановить или удалить эти данные за вас. Технические журналы Cloudflare (раздел 3) удаляются не позже чем через 7 дней.</p>
+
+<h2>8. Дети</h2>
+<p>Teeolud — приложение о состоянии дорог для водителей, не предназначенное для детей. Оно не собирает личных данных ни у кого, включая детей.</p>
+
+<h2>9. Безопасность</h2>
+<p>Данные приложения лежат в закрытом хранилище Android, недоступном другим приложениям. Все сетевые соединения зашифрованы (HTTPS).</p>
+
+<h2>10. Ваши права</h2>
+<p>У разработчика нет ваших личных данных, поэтому с его стороны нечего предоставлять, исправлять или удалять; данные на устройстве под вашим контролем в приложении и в настройках Android. Если вы напишете разработчику, ваш адрес используется только для ответа и удаляется, когда больше не нужен. Если вы находитесь в ЕЭЗ и считаете, что ваши права на защиту данных нарушены, вы можете обратиться в Инспекцию по защите данных Эстонии (<a href="https://www.aki.ee">Andmekaitse Inspektsioon</a>) или в надзорный орган своей страны.</p>
+
+<h2>11. Изменения</h2>
+<p>Если приложение начнёт обращаться с данными иначе, эта страница обновится до выхода такой версии, и дата вверху изменится.</p>
+
+<h2>12. Контакт</h2>
+<p>Александр Челпанов, разработчик Teeolud: <a href="mailto:alexander.chelpanov@proton.me">alexander.chelpanov@proton.me</a></p>
+</section>
+
+<section id="et" lang="et">
+<h1>Teeolud — privaatsuspoliitika</h1>
+<p class="meta">Rakendus: Teeolud (Android) · Kehtib alates: 07.11.2026 · Viimati uuendatud: 07.11.2026</p>
+<p>Teeolud näitab Eesti, Soome, Leedu ja Läti teede olukorda praegu — teekatte temperatuuri ja seisundit, teekaameraid ja liiklussündmusi — nende riikide teeametite avaandmete põhjal. Siin on kirjas, milliseid andmeid rakendus käsitleb, mis jääb teie seadmesse ja milliste serveritega rakendus ühendust võtab.</p>
+
+<h2>1. Lühidalt</h2>
+<ul>
+<li>Teeoludis pole kontot ega registreerimist. Pole reklaami, analüütikat, krahhiaruandeid ega jälgimisvahendeid. Arendaja ei kogu isikuandmeid.</li>
+<li>Teie seaded, kinnitatud koridorid, kinnitatud jaam ja lemmikjaamad on salvestatud ainult teie seadmes.</li>
+<li>Kui lubate asukoha, kasutab rakendus avatud olekus teie ligikaudset asukohta, et leida lähedal asuvad teeilmajaamad ja kaamerad. See toimub ainult teie seadmes: serverilt küsib rakendus tervete riikide andmeid, mitte ühe koha omi, ja teie asukohta ei saadeta kuhugi. Seadmesse salvestatakse ainult lähima jaama tunnus — vidina jaoks.</li>
+<li>Rakendus laadib avalikud teeandmed oma serverist, kaardipaanid OpenFreeMapist ja kaamerapildid teeametite serveritest. Need päringud ei sisalda teie kohta midagi peale selle, mida sisaldab iga internetiühendus: teie IP-aadressi. Teeoludi serveri majutaja hoiab tehnilisi päringulogisid — IP-aadress, aeg, päringu aadress — kuni 7 päeva (punkt 3).</li>
+</ul>
+
+<h2>2. Andmed teie seadmes</h2>
+<table>
+<tr><th>Andmed</th><th>Milleks</th><th>Kus need on</th></tr>
+<tr><td>Seaded: keel, teema, kinnitatud koridorid, kinnitatud jaam, lemmikjaamad, eelmisel korral leitud lähim jaam, kas esmakäivituse ekraani on näidatud</td><td>Et näidata teid nii, nagu valisite; lähimat jaama näitab vidin, kui jaama pole kinnitatud</td><td>Rakenduse privaatne salvestusruum teie seadmes. Kuulub Androidi varukoopiasse ja seadmete vahel ülekandmisse, kui varundus on sisse lülitatud.</td></tr>
+<tr><td>Allalaaditud teeandmed: jaamad, kaamerad, sündmused, koridorid</td><td>Et rakendus ja vidinad avaneksid kohe ja näitaksid võrguta viimaseid andmeid koos nende vanusega</td><td>Rakenduse privaatne salvestusruum teie seadmes, kuni kaks ööpäeva. Kuulub Androidi varukoopiasse, kui varundus on sisse lülitatud.</td></tr>
+<tr><td>Kaamerapildid</td><td>Et juba nähtud pilt avaneks kohe</td><td>Rakenduse vahemälu teie seadmes. Varukoopiasse ei kuulu; Android võib selle igal ajal tühjendada.</td></tr>
+<tr><td>Ligikaudne asukoht</td><td>Ainult siis, kui rakendus on avatud ja olete asukoha lubanud — et leida lähedal asuvad jaamad</td><td>Kasutatakse ainult seadme mälus. Ei salvestata ega saadeta kuhugi.</td></tr>
+</table>
+<p>Rakenduse eemaldamine või selle andmete kustutamine Androidi seadetes kustutab kõik ülaltoodu.</p>
+
+<h2>3. Võrguühendused</h2>
+<table>
+<tr><th>Server</th><th>Milleks</th></tr>
+<tr><td>Teeoludi server <code>ilmateade-worker.achelpanov86.workers.dev</code> (Cloudflare Workers; see teenindab ka arendaja rakendust Ilmateade)</td><td>Teeilmajaamad, kaamerad, sündmused, prognoosid, koridorid ja kaardi seaded. Rakendus küsib terveid loendeid — nelja riigi kõik jaamad, kaamerad ja sündmused — ega küsi kunagi andmeid ühe koha kohta; mis neist on teie lähedal ja mis kaardil näha, arvutatakse teie seadmes. Serveris on ainult avalikud teeandmed, kasutajate kohta seal teavet pole.</td></tr>
+<tr><td>OpenFreeMap <code>tiles.openfreemap.org</code></td><td>Kaardipaanid, fondid ja ikoonid — ainult siis, kui kaart on avatud. Nagu iga veebikaart, näeb server, milliseid paane laadite, ja seega ligikaudu, millist ala vaatate; kui asukoht on lubatud, avaneb kaart teie asukohas.</td></tr>
+<tr><td>Teeoludi kaardipaanid <code>teeolud-tiles.achelpanov86.workers.dev</code> (Cloudflare Workers)</td><td>Kaardipaanid OpenFreeMapi asemel — ainult siis, kui kaart on lülitatud sellele varuallikale.</td></tr>
+<tr><td>Teekaamerad: Transpordiamet <code>tarktee.transpordiamet.ee</code>, Fintraffic <code>weathercam.digitraffic.fi</code>, LAKD <code>eismoinfo.lt</code></td><td>Kaamerapilt — ainult siis, kui seda näidatakse: kaamera ekraanil, pisipildina avaekraanil või 4×2 vidinas.</td></tr>
+</table>
+<p>Kõik ühendused kasutavad HTTPS-i. Päringutes pole seadme tunnuseid; rakendus esitleb end ainult kui <code>Teeolud/&lt;versioon&gt; (Android)</code> koos lingiga projektile. Nagu iga veebisait, näevad need serverid teie IP-aadressi. Cloudflare, kus Teeoludi serverid töötavad, töötleb seda vastuse edastamiseks ning hoiab tehnilisi päringulogisid — IP-aadress, aeg, päringu aadress — kuni 7 päeva töö ja turvalisuse huvides. Päringutes asukohta pole. Arendaja kasutab logisid ainult vigade otsimiseks ega seo neid ühegi isikuga. Lingid, mida rakenduses vajutate (see leht), avanevad brauseris.</p>
+
+<h2>4. Õigused</h2>
+<table>
+<tr><th>Õigus</th><th>Kasutus</th></tr>
+<tr><td>Internet, võrgu olek (<code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>)</td><td>Andmete allalaadimine; vidinate taustauuendus toimub ainult võrgu olemasolul.</td></tr>
+<tr><td>Ligikaudne asukoht (<code>ACCESS_COARSE_LOCATION</code>)</td><td>Valikuline, küsitakse esmakäivituse ekraanil või avaekraanil. Ainult lähedal asuvate jaamade leidmiseks teie seadmes, kui rakendus on avatud. Ei täpset ega taustal asukohta. Ilma selleta valite jaama või koridori ise.</td></tr>
+<tr><td>Käivitus seadme sisselülitamisel, ärkvel hoidmine, esiplaani teenus (<code>RECEIVE_BOOT_COMPLETED</code>, <code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code>)</td><td>Deklareerib Androidi teek WorkManager, mis uuendab vidinaid iga 15 minuti järel ja taastab selle ajakava pärast taaskäivitust. Rakendus esiplaani teenuseid ei käivita.</td></tr>
+</table>
+
+<h2>5. Kolmandate osapoolte teenused</h2>
+<ul>
+<li><strong>Cloudflare</strong> majutab Teeoludi servereid (punkt 3 ja <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare'i privaatsuspoliitika</a>).</li>
+<li><strong>OpenFreeMap</strong> annab kaardi (punkt 3, <a href="https://openfreemap.org/">openfreemap.org</a>).</li>
+<li><strong>Telefoni asukohateenus</strong> määrab ligikaudse asukoha. Enamikus telefonides teevad seda Google Play teenused, mis töötavad seadme asukohaseadete ja <a href="https://policies.google.com/privacy">Google'i privaatsuspoliitika</a> järgi.</li>
+<li><strong>Google Play</strong> levitab rakendust ja annab arendajale koondatud anonüümset statistikat (paigaldused, krahhid) Google'i privaatsuspoliitika alusel.</li>
+<li>Teeandmed on Transpordiameti (Eesti), Fintrafficu (Soome), Lietuvos automobilių kelių direkcija (Leedu) ja Latvijas Valsts ceļi (Läti) avaandmed. Neile ei saadeta teie kohta midagi peale IP-aadressi, kui rakendus laadib kaamerapildi otse (punkt 3).</li>
+</ul>
+
+<h2>6. Andmete jagamine ja müük</h2>
+<p>Teeolud ei müü, jaga ega edasta teie kohta mingeid andmeid. Tal pole midagi jagada.</p>
+
+<h2>7. Säilitamine</h2>
+<p>Kõik, mida rakendus salvestab, jääb teie seadmesse, kuni selle kustutate või rakenduse eemaldate; üle kahe ööpäeva vanad teeandmed kustuvad ise. Arendajal pole koopiat ning ta ei saa neid teie eest vaadata, taastada ega kustutada. Cloudflare'i tehnilised logid (punkt 3) kustutatakse hiljemalt 7 päeva pärast.</p>
+
+<h2>8. Lapsed</h2>
+<p>Teeolud on teede olukorra rakendus juhtidele, mitte lastele suunatud. See ei kogu isikuandmeid kelleltki, ka mitte lastelt.</p>
+
+<h2>9. Turvalisus</h2>
+<p>Rakenduse andmeid hoitakse Androidi rakenduse privaatses salvestusruumis, mida teised rakendused lugeda ei saa. Kõik võrguühendused on krüpteeritud (HTTPS).</p>
+
+<h2>10. Teie õigused</h2>
+<p>Kuna arendajal pole teie isikuandmeid, pole tema poolel midagi vaadata, parandada ega kustutada; seadmes olevad andmed on teie kontrolli all rakenduses ja Androidi seadetes. Kui kirjutate arendajale, kasutatakse teie e-posti aadressi ainult vastamiseks ja see kustutatakse, kui seda enam vaja pole. Kui olete EMP-s ja leiate, et teie andmekaitseõigusi on rikutud, võite pöörduda Andmekaitse Inspektsiooni (<a href="https://www.aki.ee">aki.ee</a>) või oma riigi järelevalveasutuse poole.</p>
+
+<h2>11. Muudatused</h2>
+<p>Kui rakendus hakkab andmeid käsitlema teisiti, uuendatakse seda lehte enne sellise versiooni avaldamist ja ülal olev kuupäev muutub.</p>
+
+<h2>12. Kontakt</h2>
+<p>Alexander Chelpanov, Teeoludi arendaja: <a href="mailto:alexander.chelpanov@proton.me">alexander.chelpanov@proton.me</a></p>
+</section>
+</main>
+</body>
+</html>
